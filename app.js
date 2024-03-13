@@ -161,4 +161,43 @@ console.log(
   `Going 60MPH is not feasible, it goes over budget. 60MPH will get you there faster but cost more. 55 MPH will get you there slower but cost less.`
 );
 
-// This code could be more efficient by using functions for answering totBuget and MPH answers
+// This code could be more efficient by using functions for answering totBuget and MPH answers:
+
+function calculateTrip(tripDistance, mph, mpg, totalBudget, avgFuelCost) {
+  let totalGallons = tripDistance / mpg;
+  let totalCost = totalGallons * avgFuelCost;
+  let totalTime = tripDistance / mph;
+  let budgetSufficient = totalBudget >= totalCost;
+  return { totalGallons, totalCost, totalTime, budgetSufficient };
+}
+
+let tripDistance = 1500;
+let totalBudget = 175;
+let avgFuelCost = 3;
+
+// Calculations for going 55MPH
+let results55 = calculateTrip(distance, 55, 30, budget, avgFuelCost);
+console.log(`Calculations for going 55MPH:`);
+console.log(`The total gallons used: '${results55.totalGallons}'`);
+console.log(`The total trip cost: '${results55.totalCost}'`);
+console.log(`The total trip time: '${results55.totalTime}' hours`);
+console.log(`Is the budget enough?: '${results55.budgetSufficient}'`);
+console.log(`\n`);
+
+// Calculations for going 60MPH
+let results60 = calculateTrip(distance, 60, 28, budget, avgFuelCost);
+console.log(`Calculations for going 60MPH:`);
+console.log(`The total gallons used: '${results60.totalGallons}'`);
+console.log(`The total trip cost: '${results60.totalCost}'`);
+console.log(`The total trip time: '${results60.totalTime}' hours`);
+console.log(`Is the budget enough?: '${results60.budgetSufficient}'`);
+console.log(`\n`);
+
+// Calculations for going 75MPH
+let results75 = calculateTrip(distance, 75, 23, budget, avgFuelCost);
+console.log(`Calculations for going 75MPH:`);
+console.log(`The total gallons used: '${results75.totalGallons}'`);
+console.log(`The total trip cost: '${results75.totalCost}'`);
+console.log(`The total trip time: '${results75.totalTime}' hours`);
+console.log(`Is the budget enough?: '${results75.budgetSufficient}'`);
+console.log(`\n`);
